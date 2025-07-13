@@ -105,6 +105,12 @@
             color: #7e6d6c;
         }
 
+        .responsive-img {
+            width: 100%;
+            height: auto;
+            /* 預設讓圖片保持比例 */
+        }
+
 
         /* 淡入動畫定義(字) */
         @keyframes fadeInOutText {
@@ -128,6 +134,52 @@
                 transform: translateY(-20px);
             }
         }
+
+        /* 預設比例 */
+        .ratio-custom {
+            aspect-ratio: 2 / 2;
+        }
+
+        /* Bootstrap 的 RWD 斷點搭配自訂比例 */
+        @media (max-width: 575.98px) {
+            .ratio-custom {
+                width: 80%;
+                height: auto;
+                /* aspect-ratio: 2 / 3; */
+            }
+        }
+
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .ratio-custom {
+                /* aspect-ratio: 3 / 4; */
+                width: 75%;
+                height: auto;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .ratio-custom {
+                /* aspect-ratio: 4 / 5; */
+                width: 70%;
+                height: auto;
+            }
+        }
+
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .ratio-custom {
+                /* aspect-ratio: 16 / 10; */
+                width: 65%;
+                height: auto;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .ratio-custom {
+                /* aspect-ratio: 16 / 9; */
+                width: 55%;
+                height: auto;
+            }
+        }
     </style>
 </head>
 
@@ -142,13 +194,14 @@
             <div class="container mid">
                 <div class="row" style="height: 20%;">
                     <div class="col" style="top:0; right:0; left:0; bottom:0; margin:auto;">
-                        <img id="logoImg" src="img/logo.png" alt="" class="hide-element" onclick="nextHomeImg()" />
+                        <img id="logoImg" src="img/logo.png" alt="" class="hide-element img-fluid"
+                            onclick="nextHomeImg()" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <input id="myDatepicker" value="2000-1-1" class="hide-element date-input"
-                            placeholder="請輸入生日..." />&nbsp;
+                        <input id="myDatepicker" value="2000-1-1" class="hide-element date-input" placeholder="請輸入生日..."
+                            size="12" />&nbsp;
                         <button id="search" type="button" class="btn btn-secondary hide-element"
                             onclick="show()">牆外調查</button>
                     </div>
@@ -159,10 +212,10 @@
 
                 </div>
                 <div class="row">
-
                     <span id="showName"></span>
-                    <img id="showImgUrl" src="" alt="" style="visibility: hidden; margin: 0 auto;">
-
+                    <div class="ratio ratio-custom" style="top:0; right:0; left:0; bottom:0; margin:auto;">
+                        <img id="showImgUrl" src="" alt="" class="img-fluid" style="visibility: hidden; ">
+                    </div>
                 </div>
             </div>
 
@@ -294,8 +347,8 @@
         setTimeout(() => {
             spanText.style.display = 'none';
             showImgUrl.style.visibility = '';
-            showImgUrl.style.width = '50%';
-            showImgUrl.style.height = '50%';
+            //showImgUrl.style.width = '50%';
+            //showImgUrl.style.height = '50%';
             let index = character.birthday.indexOf(inputBir.substring(inputBir.indexOf('-') + 1));
             if (index > -1) {
                 showName.classList.add('show-name-ch');
@@ -311,9 +364,9 @@
     }
 
     function nextHomeImg() {
-        if(randomBackImgIndex == 16){
+        if (randomBackImgIndex == 16) {
             randomBackImgIndex = 0;
-        }else{
+        } else {
             randomBackImgIndex++;
         }
         document.getElementById("homeImg").src = 'img/' + arrBackImg[randomBackImgIndex];
