@@ -147,12 +147,22 @@
                 height: auto;
                 /* aspect-ratio: 2 / 3; */
             }
+
+            .ratio-custom-logo {
+                width: 80%;
+                height: auto;
+            }
         }
 
         @media (min-width: 576px) and (max-width: 767.98px) {
             .ratio-custom {
                 /* aspect-ratio: 3 / 4; */
                 width: 75%;
+                height: auto;
+            }
+
+            .ratio-custom-logo {
+                width: 80%;
                 height: auto;
             }
         }
@@ -163,6 +173,11 @@
                 width: 70%;
                 height: auto;
             }
+
+            .ratio-custom-logo {
+                width: 85%;
+                height: auto;
+            }
         }
 
         @media (min-width: 992px) and (max-width: 1199.98px) {
@@ -171,12 +186,22 @@
                 width: 65%;
                 height: auto;
             }
+
+            .ratio-custom-logo {
+                width: auto;
+                height: auto;
+            }
         }
 
         @media (min-width: 1200px) {
             .ratio-custom {
                 /* aspect-ratio: 16 / 9; */
                 width: 55%;
+                height: auto;
+            }
+
+            .ratio-custom-logo {
+                width: auto;
                 height: auto;
             }
         }
@@ -193,8 +218,8 @@
         <div class="position-absolute top-0 start-0 w-100 h-100 d-flex">
             <div class="container mid">
                 <div class="row" style="height: 20%;">
-                    <div class="col" style="top:0; right:0; left:0; bottom:0; margin:auto;">
-                        <img id="logoImg" src="img/logo.png" alt="" class="hide-element img-fluid"
+                    <div class="col " style="top:0; right:0; left:0; bottom:0; margin:auto;">
+                        <img id="logoImg" src="img/logo.png" alt="" class="hide-element ratio-custom-logo"
                             onclick="nextHomeImg()" />
                     </div>
                 </div>
